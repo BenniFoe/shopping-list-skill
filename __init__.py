@@ -57,14 +57,14 @@ class ShoppingList(MycroftSkill):
     @intent_handler('add.things.intent')
     def handle_add_things(self):
         stillask = True
-        answer = self.get_response('what.should.add', num_retries=1)
+        answer = self.get_response('what.should.add', num_retries=0)
         if answer in ['stop', 'exit', 'back', 'get back', None]:
             stillask = False
         else:
             self.shoppinglist.append(answer)
 
         while stillask:
-            answer = self.get_response('add.thing', {'thing': answer})
+            answer = self.get_response('add.thing', {'thing': answer}, num_retries=0)
             if answer in ['stop', 'exit', 'back', 'get back', None]:
                 stillask = False
             else:
