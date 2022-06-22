@@ -41,7 +41,7 @@ class ShoppingList(MycroftSkill):
             self.shoppinglist.remove(thing)
             self.speeak_dialog('list.shopping.removed', {'thing': thing})
         else:
-            self.speak_dialog('list.shopping.not.in.list', {'thing': thing})
+            self.speak_dialog('list.shopping.not.in.list.dialog', {'thing': thing})
 
 
 
