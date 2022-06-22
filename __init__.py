@@ -34,6 +34,15 @@ class ShoppingList(MycroftSkill):
         else:
             self.speak_dialog('list.shopping.empty.list')
 
+    @intent_handler('list.shopping.remove.intent')
+    def handle_list_shopping_remove(self, message):
+        thing = message.data.get('thing')
+        if thing in self.shoppinglist:
+            self.shoppinglist.remove(thing)
+            self.speeak_dialog('list.shopping.removed', {'thing': thing})
+        else:
+            self.speak_dialog('list.shopping.not.in.list', {'thing': thing})
+
 
 
 
