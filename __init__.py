@@ -19,18 +19,18 @@ class ShoppingList(MycroftSkill):
     def handle_list_shopping_add(self, message):
         thing = message.data.get('thing')
         if thing is not None:
-            self.speak_dialog('list.shopping.add.dialog', {'thing': thing})
+            self.speak_dialog('list.shopping.add', {'thing': thing})
             self.shoppinglist.append(thing)
             gotnothing = False
         else:
-            self.speak_dialog('list.shopping.not.understand.dialog')
+            self.speak_dialog('list.shopping.not.understand')
 
     @intent_handler('list.shopping.read.intent')
     def handle_list_shopping_read(self):
         if not self.shoppinglist:
-            self.speak_dialog('list.shopping.read.dialog')
+            self.speak_dialog('list.shopping.read')
         else:
-            self.speak_dialog('list.shopping.empty.list.dialog')
+            self.speak_dialog('list.shopping.empty.list')
 
 
 
