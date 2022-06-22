@@ -62,10 +62,10 @@ class ShoppingList(MycroftSkill):
             stillask = False
         else:
             self.shoppinglist.append(answer)
-            self.speak_dialog('add.thing.intent', {'thing': answer})
+            self.speak_dialog('add.thing', {'thing': answer})
 
         while stillask:
-            answer = self.get_response('add.thing.intent', {'thing': answer})
+            answer = self.get_response('add.thing', {'thing': answer})
             if answer in ['stop', 'exit', 'back', 'get back']:
                 stillask = False
             else:
