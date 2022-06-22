@@ -4,7 +4,7 @@ from mycroft import MycroftSkill, intent_handler
 class ShoppingList(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.shoppinglist = ['bread', 'milk']
+        self.shoppinglist = []
 
     def initialize(self):
         pass
@@ -27,11 +27,12 @@ class ShoppingList(MycroftSkill):
 
     @intent_handler('list.shopping.read.intent')
     def handle_list_shopping_read(self):
-        if not self.shoppinglist:
+        if self.shoppinglist:
             self.speak_dialog('list.shopping.read')
+            for thing in self.shoppinglist:
+                self.speak(thing)
         else:
             self.speak_dialog('list.shopping.empty.list')
-            self.speak('list contains ' + str(len(self.shoppinglist)) + 'elements')
 
 
 
