@@ -38,7 +38,7 @@ class ShoppingList(MycroftSkill):
         thing = message.data.get('thing')
         if thing in self.shoppinglist:
             self.shoppinglist.remove(thing)
-            self.speeak_dialog('remove.thing', {'thing': thing})
+            self.speak_dialog('remove.thing', {'thing': thing})
         else:
             self.speak_dialog('not.in.shoppinglist', {'thing': thing})
 
@@ -62,7 +62,6 @@ class ShoppingList(MycroftSkill):
             stillask = False
         else:
             self.shoppinglist.append(answer)
-            self.speak_dialog('add.thing', {'thing': answer})
 
         while stillask:
             answer = self.get_response('add.thing', {'thing': answer})
