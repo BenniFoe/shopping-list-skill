@@ -29,9 +29,9 @@ class ShoppingList(MycroftSkill):
     def handle_list_shopping_read(self):
         if not self.shoppinglist:
             self.speak_dialog('list.shopping.read')
-            print(self.shoppinglist.len())
         else:
             self.speak_dialog('list.shopping.empty.list')
+            self.speak('list contains ' + str(len(self.shoppinglist)) + 'elements')
 
 
 
