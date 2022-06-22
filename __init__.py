@@ -58,14 +58,14 @@ class ShoppingList(MycroftSkill):
     def handle_add_things(self):
         stillask = True
         answer = self.get_response('what.should.add')
-        if answer in ['stop', 'exit', 'back', 'get back', 'none']:
+        if answer in ['stop', 'exit', 'back', 'get back', None]:
             stillask = False
         else:
             self.shoppinglist.append(answer)
 
         while stillask:
             answer = self.get_response('add.thing', {'thing': answer})
-            if answer in ['stop', 'exit', 'back', 'get back', 'none']:
+            if answer in ['stop', 'exit', 'back', 'get back', None]:
                 stillask = False
             else:
                 self.shoppinglist.append(answer)
