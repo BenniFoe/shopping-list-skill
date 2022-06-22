@@ -7,6 +7,7 @@ class ShoppingList(MycroftSkill):
         self.shoppinglist = []
 
     def initialize(self):
+        self.shoppinglist = ['bread', 'milk']
         pass
 
     '''
@@ -32,7 +33,6 @@ class ShoppingList(MycroftSkill):
             print(self.shoppinglist.len())
         else:
             self.speak_dialog('list.shopping.empty.list')
-            print('Hello world')
 
 
 
