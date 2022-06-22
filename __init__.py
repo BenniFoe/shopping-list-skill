@@ -4,9 +4,10 @@ from mycroft import MycroftSkill, intent_handler
 class ShoppingList(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.shoppinglist = []
 
     def initialize(self):
-        self.shoppinglist = []
+        pass
 
     '''
     @intent_file_handler('list.shopping.intent')
@@ -21,7 +22,6 @@ class ShoppingList(MycroftSkill):
         if thing is not None:
             self.speak_dialog('list.shopping.add', {'thing': thing})
             self.shoppinglist.append(thing)
-            gotnothing = False
         else:
             self.speak_dialog('list.shopping.not.understand')
 
@@ -29,6 +29,7 @@ class ShoppingList(MycroftSkill):
     def handle_list_shopping_read(self):
         if not self.shoppinglist:
             self.speak_dialog('list.shopping.read')
+            print(self.shoppinglist.len())
         else:
             self.speak_dialog('list.shopping.empty.list')
 
