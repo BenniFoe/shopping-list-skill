@@ -32,6 +32,7 @@ class ShoppingList(MycroftSkill):
             print(self.shoppinglist.len())
         else:
             self.speak_dialog('list.shopping.empty.list')
+            print(self.shoppinglist.len())
 
 
 
