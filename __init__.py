@@ -4,10 +4,9 @@ from mycroft import MycroftSkill, intent_handler
 class ShoppingList(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
-        self.shoppinglist = []
+        self.shoppinglist = ['bread', 'milk']
 
     def initialize(self):
-        self.shoppinglist = ['bread', 'milk']
         pass
 
     '''
